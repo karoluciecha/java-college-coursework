@@ -1,0 +1,12 @@
+Charges for Gym Member 123
+==========================
+
+Rate for gym only 123 is €9.00
+
+Item Entry for member number 123
+Beverage cost: €321.00
+Snack cost: €34245.00
+Gift shop cost: €32.00
+
+
+TOTAL COST: €34607.00

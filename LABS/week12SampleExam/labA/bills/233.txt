@@ -1,0 +1,10 @@
+Charges for Gym Member 233
+==========================
+
+Rate for sauna 233 is €12.50
+
+Item Entry for member number 233
+Gift shop cost: €123.00
+
+
+TOTAL COST: €135.50

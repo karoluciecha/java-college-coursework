@@ -1,0 +1,13 @@
+Charges for Gym Member 111
+==========================
+
+Rate for gym only 111 is €10.00
+
+Item Entry for member number 111
+Beverage cost: €33.00
+Snack cost: €44.00
+Gift shop cost: €55.00
+
+
+
+TOTAL COST: €142.00
