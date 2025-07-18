@@ -176,7 +176,7 @@ public class Everything {
 	}
 
 	public static void main(String[] args) {
-		System.out.println("\n===== Exercise 1 =====");
+		System.out.println("===== Exercise 1 =====");
 		exerciseOne();
 
 		System.out.println("\n===== Exercise 2 =====");

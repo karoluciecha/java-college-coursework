@@ -187,7 +187,7 @@ public class EverythingOne {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 
-		System.out.println("\n===== Exercise 1 =====");
+		System.out.println("===== Exercise 1 =====");
 		exerciseOne(scanner);
 
 		System.out.println("\n===== Exercise 2 =====");
