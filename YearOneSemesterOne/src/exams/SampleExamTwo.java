@@ -1,15 +1,96 @@
-// Karol - G00436758 - 12/11/2023
+package exams;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Random;
-import javax.swing.JOptionPane;
-import java.io.*;
+import java.util.Scanner;
 
-public class KarolUciechaQuestion4 {
-    public static void main(String[] args) throws IOException {
+import javax.swing.JOptionPane;
+
+public class SampleExamTwo {
+
+	private static void exerciseOne() {
+        String[] monthName = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+        Random rnd = new Random();
+        int day = rnd.nextInt(28) + 1, month = rnd.nextInt(12), year = 2023;
+        JOptionPane.showMessageDialog(null, day + " " + monthName[month] + " " + year + "\n");
+	}
+
+	private static void exerciseTwo(Scanner console) {
+		final double INCREMENT_VALUE = 0.05D;
+		double startNum = 0D, endNum = 0D;
+		int forCounter = 0;
+		boolean checker = false;
+		
+		do {
+			checker = false;
+			System.out.printf("Enter starting number: ");
+			try {
+				startNum = console.nextDouble();
+			}
+			catch (Exception e) {
+				System.out.printf("Please enter a real number!\n");
+				console.nextLine();
+				checker = true;
+			}
+		} while (checker);
+		do {
+			checker = false;
+			System.out.printf("Enter finishing number: ");
+			try {
+				endNum = console.nextDouble();
+			}
+			catch (Exception e) {
+				System.out.printf("Please enter a real number!\n");
+				console.nextLine();
+				checker = true;
+			}
+			if (startNum >= endNum) {
+				System.out.printf("Finishing number must be greater than starting number!\n");
+				checker = true;
+			}
+		} while (checker);
+		for (; startNum <= endNum; startNum += INCREMENT_VALUE) {
+			System.out.printf("%.2f, ", startNum);
+			forCounter++;
+			if (forCounter % 10 == 0) {
+				System.out.printf("\n");
+			}
+		}
+		System.out.printf("\n");
+	}
+	
+	private static void exerciseThree() {
+		String[] nameList = {"Gary", "Helen", "Ian", "Jane", "Kevin", "Dave", "Mary", "Noel", "Bob", "Alice"};
+		Random rnd = new Random();
+		int num1 = rnd.nextInt(11), num2 = 0, num3 = 0;
+		do {
+			num2 = rnd.nextInt(11);
+		} while (num1 == num2);
+		do {
+			num3 = rnd.nextInt(11);
+		} while ((num1 == num3) || (num2 == num3));
+		System.out.printf("This program will select 3 random names from the following:\n");
+		for (int i = 0; i < (nameList.length - 1); ++i) {
+			System.out.printf("%s, ", nameList[i]);
+		}
+		System.out.printf("%s\n\nFirst random name is: %s\nSecond random name is: %s\nThird random name is: %s\n", nameList[nameList.length - 1], nameList[num1], nameList[num2], nameList[num3]);
+	}
+
+	private static void exerciseFour() throws IOException {
 		final String EURO = "\u20ac";
 		float gym = 9F, sauna = 12.5F, pt = 39F, beverage = 0F, snack = 0F, gift = 0F, totalCost = 0F;
 		char[] pinLetter = {'A', 'B', 'C'};
 		Random rnd = new Random();
+		
+	    File billsFolder = new File("bills");
+	    if (!billsFolder.exists()) {
+	        billsFolder.mkdirs();
+	    }
+		
 		String pinNumber = String.format("%c%d", pinLetter[rnd.nextInt(3)], rnd.nextInt(900) + 100), billJOP, billFile, AI;
 		int memNum = 0;
 		String enteredPin = JOptionPane.showInputDialog(null, "Pass Pin: " + pinNumber + "\n\nConfirm access by entering Pass Pin:", "Input", JOptionPane.QUESTION_MESSAGE);
@@ -18,7 +99,7 @@ public class KarolUciechaQuestion4 {
 			return;
 		}
 		JOptionPane.showMessageDialog(null, "Welcome to\nTHE JAVA GYM", "Message", JOptionPane.INFORMATION_MESSAGE);
-		FileWriter fWriterAI = new FileWriter("bills" + File.separator +"All items.txt", true);
+		FileWriter fWriterAI = new FileWriter(new File(billsFolder, "All items.txt"), true);
 		PrintWriter pWriterAI = new PrintWriter(fWriterAI);
 		do {
 			gym = 9F;
@@ -119,5 +200,23 @@ public class KarolUciechaQuestion4 {
 			if(JOptionPane.showConfirmDialog(null, "End of item entry.\n\nWould you like to calculate bill for another member?", "Select an Option", JOptionPane.YES_NO_OPTION) == 1) break;
 	} while (true);
 		pWriterAI.close();
-    }
+	}
+
+	public static void main(String[] args) throws IOException {
+		Scanner scanner = new Scanner(System.in);
+
+		System.out.println("===== Exercise 1 =====");
+		exerciseOne();
+
+		System.out.println("\n===== Exercise 2 =====");
+		exerciseTwo(scanner);
+		
+		System.out.println("===== Exercise 3 =====");
+		exerciseThree();
+
+		System.out.println("\n===== Exercise 4 =====");
+		exerciseFour();
+
+		scanner.close();
+	}
 }

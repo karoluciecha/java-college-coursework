@@ -1,14 +1,111 @@
-// Karol Uciecha - G00436758 - 06/11/2023
+package exams;
 
-import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Scanner;
 
-public class KarolUciechaQuestion2
-{
-	public static void main(String[] args)
-	{
+public class SampleExamOne {
+
+	private static void exerciseOne(Scanner console) {
+		int month = 0, day = 0;
+		String season = "";
+
+		// Getting month
+		try
+		{
+			System.out.printf("Enter a month (1 - 12): ");
+			month = console.nextInt();
+		}
+		catch (Exception e)
+		{
+			System.out.printf("That's not an INT value number! Program is now shutting down...\n");
+			return;
+		}
+		finally
+		{
+			if ((month < 1) || (month > 12))
+			{
+				System.out.printf("That's not a correct month number. Program is now shutting down...\n");
+				return;
+			}
+		}
+
+		// Getting day
+		try
+		{
+			System.out.printf("Enter a day (1 - 31): ");
+			day = console.nextInt();
+		}
+		catch (Exception e)
+		{
+			System.out.printf("That's not an INT value number! Program is now shutting down...\n");
+			return;
+		}
+		finally
+		{
+			switch (month)
+			{
+				case 1:
+				case 3:
+				case 5:
+				case 7:
+				case 8:
+				case 10:
+				case 12:
+					if ((day < 1) || (day > 31))
+					{
+						System.out.printf("That's not a correct day number for the month selected.\nNumber should be between 1 and 31.\nProgram is now shutting down...\n");
+						return;
+					}
+					break;
+				case 4:
+				case 6:
+				case 9:
+				case 11:
+					if ((day < 1) || (day > 30))
+					{
+						System.out.printf("That's not a correct day number for the month selected.\nNumber should be between 1 and 30.\nProgram is now shutting down...\n");
+						return;
+					}
+					break;
+				case 2:
+					if ((day < 1) || (day > 28))
+					{
+						System.out.printf("That's not a correct day number for the month selected.\nNumber should be between 1 and 28.\nProgram is now shutting down...\n");
+						return;
+					}
+					break;
+			}
+		}
+
+		// Outputting result
+		switch (month)
+		{
+			case 12:
+			case 1:
+			case 2:
+				season = "Winter";
+				break;
+			case 3:
+			case 4:
+			case 5:
+				season = "Spring";
+				break;
+			case 6:
+			case 7:
+			case 8:
+				season = "Summer";
+				break;
+			case 9:
+			case 10:
+			case 11:
+				season = "Autumn";
+				break;
+		}
+		System.out.printf("You chose %d/%d, which corresponds to the season: %s.\n", month, day, season);
+	}
+
+	private static void exerciseTwo(Scanner console) {
 		final double PRICE_PER_BREAKFAST = 10D;
-		Scanner console = new Scanner(System.in);
 		int option1 = 0, nono1 = 0, numberOfBreakfast = 0, costOfBreakfast = 0, j = 0;
 		double cpn1 = 0D, tc1 = 0D, cost = 0D;
 		char yn1 = 'a', excursion = 'a';
@@ -25,6 +122,7 @@ public class KarolUciechaQuestion2
 		System.out.printf("\t==============================================\n");
 		System.out.printf("\t\tWelcome to The Cozy Corner B&B\n");
 		System.out.printf("\t==============================================\n\n");
+		console.nextLine();
 		System.out.printf("Enter username: ");
 		username = console.nextLine();
 		System.out.printf("Welcome to The Cozy Corner B&B Booking System");
@@ -42,11 +140,12 @@ public class KarolUciechaQuestion2
 			catch (Exception e)
 			{
 				console.nextLine();
+			    System.out.printf("Invalid input. Please enter a number between 1 and 7.\n");
+
 			}
 			if (option1 == 7)
 			{
 				System.out.printf("\nExiting system, goodbye...\n\n");
-				console.close();
 				return;
 			}
 		switch (option1)
@@ -164,10 +263,10 @@ public class KarolUciechaQuestion2
 
 			case 6:
 				System.out.printf("\n\n======== PURCHASE B&B EXTRAS ========\nEnter E for Excursion Package\nEnter N for No purchase\nEnter item for purchase: ");
-				excursion = console.next().charAt(0);
-
-
-				while (!(excursion == 'e') && !(excursion == 'n'));
+				do {
+				    System.out.print("Enter item for purchase (E/N): ");
+				    excursion = console.next().toLowerCase().charAt(0);
+				} while (excursion != 'e' && excursion != 'n');
 
 				System.out.printf("\n=====================================\n");
 				break;
@@ -175,5 +274,17 @@ public class KarolUciechaQuestion2
 		option1 = 0;
 		}
 		while (true);
+	}
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+
+		System.out.println("===== Exercise 1 =====");
+		exerciseOne(scanner);
+
+		System.out.println("\n===== Exercise 2 =====");
+		exerciseTwo(scanner);
+
+		scanner.close();
 	}
 }
