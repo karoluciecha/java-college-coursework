@@ -1,0 +1,100 @@
+1. Operating systems
+2. Programming languages
+3. Networking
+4. Computer hardware
+5. Security
+6. Algorithms
+7. Artificial Intelligence
+8. Machine Learning
+9. Cloud Computing
+10. Data Storage
+11. Data Structures
+12. Databases
+13. Software Engineering
+14. User Interface Design
+15. Web Development
+16. Mobile Development
+17. Computer Vision
+18. Virtual Reality
+19. Augmented Reality
+20. Robotics
+21. Natural Language Processing
+22. Video Game Development
+23. Cryptography
+24. Internet of Things
+25. Distributed Computing
+26. Computer Graphics
+27. Compilers
+28. Computer Architecture
+29. Computer Networking
+30. Data Mining
+31. Big Data
+32. Mobile Application Development
+33. Network Security
+34. Network Protocols
+35. Computer Forensics
+36. Hardware Design
+37. Computer Simulation
+38. Computer Programming
+39. Computer Science Theory
+40. Database Design
+41. Data Analysis
+42. Cryptocurrency
+43. Operating System Design
+44. Software Testing
+45. Search Engine Optimization
+46. Image Processing
+47. Network Administration
+48. Data Visualization
+49. Game Theory
+50. Graph Theory
+51. Software Project Management
+52. System Administration
+53. Computer Security
+54. Computer Aided Design
+55. Network Design
+56. AI-driven Automation
+57. Natural Language Generation
+58. Data Warehousing
+59. Natural Language Understanding
+60. Cybersecurity
+61. Speech Recognition
+62. 3D Modeling
+63. Virtualization
+64. Computer Vision
+65. Operating System Security
+66. Virtual Reality
+67. Computer Animation
+68. Information Retrieval
+69. Cryptanalysis
+70. Supercomputing
+71. Automated Machine Learning
+72. Blockchain
+73. Machine Learning Optimization
+74. Machine Vision
+75. Text Mining
+76. Data Science
+77. Database Systems
+78. Automated Reasoning
+79. Augmented Intelligence
+80. DevOps
+81. Embedded Systems
+82. Computer-Aided Manufacturing
+83. Quantum Computing
+84. Digital Signal Processing
+85. Network Programming
+86. Web Architecture
+87. Mobile Security
+88. Image Recognition
+89. Automated Decision Making
+90. Knowledge Representation
+91. Automated Planning
+92. Digital Rights Management
+93. Software Performance Tuning
+94. Autonomous Systems
+95. Software Design Patterns
+96. Wireless Networking
+97. Parallel Computing
+98. Data Compression
+99. Network Topology
+100. Network Performance Analysis
