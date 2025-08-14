@@ -1,16 +1,16 @@
-package labA;
+package constructors;
 
-public class swimmingPool {
+public class SwimmingPool {
 	private double length;
 	private double width;
 	private double depth;
 	
-	public swimmingPool(double length, double width, double depth) {
+	public SwimmingPool(double length, double width, double depth) {
 		this.length = length;
 		this.width = width;
 		this.depth = depth;
 	}
-	public swimmingPool() {
+	public SwimmingPool() {
 	}
 	public void setLength(double length) {
 		this.length = length;

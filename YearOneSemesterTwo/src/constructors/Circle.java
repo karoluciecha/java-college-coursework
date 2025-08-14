@@ -1,4 +1,4 @@
-package labA;
+package constructors;
 
 public class Circle {
 	private int radius;
