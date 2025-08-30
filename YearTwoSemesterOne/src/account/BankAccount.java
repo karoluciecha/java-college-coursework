@@ -6,14 +6,14 @@ public class BankAccount extends Account implements StateSubsidy {
 	static float euroConversionRate; // One piece of storage changes for every object
 	// overloaded constructors
 
-	BankAccount(int theNumber, String theName) {
+	protected BankAccount(int theNumber, String theName) {
 		// = right to left associativity
 		accountNumber = theNumber;
 		accountName = theName;
 	}
 
 	// local variables - grey
-	BankAccount(int theNumber, String theName, float theBalance) {
+	protected BankAccount(int theNumber, String theName, float theBalance) {
 		accountNumber = theNumber;
 		accountName = theName;
 		accountBalance = theBalance;
