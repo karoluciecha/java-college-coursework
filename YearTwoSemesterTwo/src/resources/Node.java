@@ -1,31 +1,43 @@
 package resources;
 
-/*
- * A node acts as a wrapper for one of the elements in the linked list. The
- * class Node is generically typed with an <E> to allow an element of any
- * type to be stored in the list. The element is stored using the instance
- * variable private E data. Each instance of Node has a link to the next item 
- * in the list to form a chain of linked nodes. The links are implemented with 
- * the instance variable private Node<E> next. This creates a single-linked
- * list and allows for iteration and operation in direction only (the forward
- * direction). We can extend this class to implement a doubly-linked list by
- * including an additional instance variable defined as private Node<E> previous
- * and then adding the necessary additional functionality to the class. 
- */
-public class Node<E> {
-	private E data;
-	private Node<E> next;
+import java.util.*;
 
+public class Node<E> {
+	// List related fields
+	private E data;
+	private Node<E> next; // singly linked list
+
+	// Tree related fields
+	private Node<E> parent; // parent node for tree
+	private List<Node<E>> children = new ArrayList<>(); // children for tree
+
+	// ===== Constructors =====
+
+	// For linked list usage
 	public Node(E data) {
 		this.data = data;
-		next = null;
+		this.next = null;
 	}
 
-	public Node(E data, Node<E> node) {
+	public Node(E data, Node<E> next) {
 		this.data = data;
-		next = node;
+		this.next = next;
 	}
 
+	// For tree usage
+	public Node() {
+	}
+
+	public Node(Node<E> parent) {
+		this.parent = parent;
+	}
+
+	public Node(Node<E> parent, E data) {
+		this.parent = parent;
+		this.data = data;
+	}
+
+	// ===== Linked List Methods =====
 	public E getData() {
 		return data;
 	}
@@ -40,5 +52,46 @@ public class Node<E> {
 
 	public void setNext(Node<E> next) {
 		this.next = next;
+	}
+
+	// ===== Tree Methods =====
+	public Node<E> getParent() {
+		return this.parent;
+	}
+
+	public void setParent(Node<E> parent) {
+		this.parent = parent;
+	}
+
+	public boolean isRoot() {
+		return this.parent == null;
+	}
+
+	public boolean hasChildren() {
+		return !this.children.isEmpty();
+	}
+
+	public void addChild(Node<E> child) {
+		child.setParent(this);
+		children.add(child);
+	}
+
+	public void removeChild(Node<E> child) {
+		child.setParent(null);
+		children.remove(child);
+	}
+
+	@SuppressWarnings("unchecked")
+	public Node<E>[] children() {
+		return (Node<E>[]) children.toArray(new Node[children.size()]);
+	}
+
+	// 'item' methods for tree context: alias to data
+	public void setItem(E item) {
+		this.data = item;
+	}
+
+	public E getItem() {
+		return this.data;
 	}
 }

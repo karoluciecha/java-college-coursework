@@ -4,14 +4,19 @@ import java.util.*;
 import java.io.*;
 
 public class Dictionary {
-	private List<String> words = new ArrayList<>();
+	private List<String> wordsS = new ArrayList<>();
+	private List<Word> wordsW = new ArrayList<>(); //Instance variable of type List (an interface)
+	private Map<StrangeString, Word> wordMap = new TreeMap<>((n, m) -> n.getWord().compareTo(m.getWord()));
 	private final String DICTIONARY_FILE = "src/dictionary.txt";
 
 	public void load() throws Exception {
 		try (var br = new BufferedReader(new InputStreamReader(new FileInputStream(DICTIONARY_FILE)))) {
 			String next;
 			while ((next = br.readLine()) != null) {
-				words.add(next);
+				wordsS.add(next);
+				Word word = new Word(next); //Create a new Word object using the next word in the dictionary
+				 wordsW.add(word); //Add the word to our array list
+				 wordMap.put(new StrangeString(next), word); //Also add the word to the hash map
 			}
 		} catch (Exception e) {
 			throw new Exception("[ERROR] Encountered a problem reading the dictionary. " + e.getMessage());
@@ -19,12 +24,20 @@ public class Dictionary {
 	}
 
 	public int size() {
-		return words.size();
+		return wordsS.size();
 	}
 
 	public String[] getSortedWords(){
-		return words.stream().toArray(String[]::new);
-	}	
+		return wordsS.stream().toArray(String[]::new);
+	}
+	
+	public Word[] getSortedWordsW(){
+		return wordsW.stream().toArray(Word[]::new);
+	}
+	
+	public Map<StrangeString, Word> getWordMap(){
+		return wordMap;
+	}
 	
 	/*
 	 * This method is for demonstration purposes only and can be
@@ -36,9 +49,9 @@ public class Dictionary {
 	public String[] getSortedWords(boolean slow){
 		final int INITIAL_CAPACITY = 8; 
 		String[] array = new String[INITIAL_CAPACITY];
-		for (int i = 0; i < words.size(); i++){
+		for (int i = 0; i < wordsS.size(); i++){
 			if (i == array.length - 1) array = expand(array, slow);
-			array[i] = words.get(i);
+			array[i] = wordsS.get(i);
 		}
 		return array;
 	}
