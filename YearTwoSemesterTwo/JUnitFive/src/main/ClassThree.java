@@ -17,7 +17,7 @@ public class ClassThree {
 		}
 	}
 
-	public float square_root() {
+	public float squareRoot() {
 		if (a < 0) {
 			throw new IllegalArgumentException("Square Root of negative num not possible");
 		} else {
