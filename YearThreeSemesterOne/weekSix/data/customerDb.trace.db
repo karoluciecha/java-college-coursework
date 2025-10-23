@@ -1,0 +1,6 @@
+2025-10-23 10:27:18.333081Z jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "show columns [*]for customer"; expected "FROM"; SQL statement:
+show columns for customer [42001-232]
+2025-10-23 10:27:19.119460Z jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "show columns [*]for customer"; expected "FROM"; SQL statement:
+show columns for customer [42001-232]
