@@ -2,15 +2,13 @@ package com.example.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.ApplicationContext;
 
 @SpringBootApplication
-@EnableFeignClients
-public class WeekSixApplication {
+public class WeekSevenApplication {
 
 	public static void main(String[] args) {
-		ApplicationContext ctx = SpringApplication.run(WeekSixApplication.class, args);
+		ApplicationContext ctx = SpringApplication.run(WeekSevenApplication.class, args);
 		String[] beans = ctx.getBeanDefinitionNames();
 		for (int i = 0; i < beans.length; i++) {
 			System.out.println(beans[i]);

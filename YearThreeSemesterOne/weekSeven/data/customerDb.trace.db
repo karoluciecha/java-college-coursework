@@ -16,3 +16,6 @@ DESCRIBE customerDb [42001-232]
 2025-11-13 11:14:48.305626Z jdbc[13]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]DESCRIBE CUSTOMER"; expected "DELETE, DROP"; SQL statement:
 DESCRIBE CUSTOMER [42001-232]
+2025-11-14 12:56:29.117188Z jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CUSTOMERS" not found; SQL statement:
+SELECT * from customers [42102-232]
