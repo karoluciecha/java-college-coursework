@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+ name: lab-eight-service # Name of the Service
+ annotations:
+  prometheus.io/scrape: "true"
+  prometheus.io/path: "/actuator/prometheus"
+  prometheus.io/port: "8080" # service port (yours is 80 -> targetPort 8080)
+spec:
+ selector: # Which Pods the Service should forward traffic to
+  app: lab-eight-pod # Pods with this label (defined in deployment.yaml)
+ ports:
+  - port: 8080
+    targetPort: 8080
+    nodePort: 30080
+ type: NodePort

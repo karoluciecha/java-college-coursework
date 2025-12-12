@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: lab-eight-deployment # Name of Deployment
+spec:
+ replicas: 1
+ selector:
+  matchLabels:
+   app: lab-eight-pod # Only match Pods with this label
+ template: # Pod template
+  metadata:
+   labels:
+    app: lab-eight-pod # Each Pod will be labeled with this label
+   annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/path: "/actuator/prometheus"
+    prometheus.io/port: "8080" # container port your app listens on
+  spec:
+   containers:
+    - name: lab-eight-container # Name of the Container
+      image: lab-eight-image # Name of the Image that the Container is based on
+      imagePullPolicy: Never
+      ports:
+       - containerPort: 8080 # Declares that the app listens on port 8080 inside the container
